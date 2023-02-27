@@ -30,7 +30,31 @@ get http://localhost:3000/user/followers/
 Authorization: Barear eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InBhdmFuS2lsbGFkYSIsImlhdCI6MTY3NzMzNzE0MH0.VxBbVGct7Yaoj3jwqLf5oc_wwgZlbRw26zhz1BkIgC4
 ###
 
-get http://localhost:3000/tweets/2/
+get http://localhost:3000/tweets/1/
 Authorization: Barear eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InBhdmFuS2lsbGFkYSIsImlhdCI6MTY3NzMzNzE0MH0.VxBbVGct7Yaoj3jwqLf5oc_wwgZlbRw26zhz1BkIgC4
 ###
 
+get http://localhost:3000/tweets/1/likes/
+Authorization: Barear eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InBhdmFuS2lsbGFkYSIsImlhdCI6MTY3NzMzNzE0MH0.VxBbVGct7Yaoj3jwqLf5oc_wwgZlbRw26zhz1BkIgC4
+###
+
+get http://localhost:3000/tweets/1/replies/
+Authorization: Barear eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InBhdmFuS2lsbGFkYSIsImlhdCI6MTY3NzMzNzE0MH0.VxBbVGct7Yaoj3jwqLf5oc_wwgZlbRw26zhz1BkIgC4
+###
+
+get http://localhost:3000/user/tweets/
+Authorization: Barear eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InBhdmFuS2lsbGFkYSIsImlhdCI6MTY3NzMzNzE0MH0.VxBbVGct7Yaoj3jwqLf5oc_wwgZlbRw26zhz1BkIgC4
+###
+
+post http://localhost:3000/user/tweets/
+Authorization: Barear eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InBhdmFuS2lsbGFkYSIsImlhdCI6MTY3NzMzNzE0MH0.VxBbVGct7Yaoj3jwqLf5oc_wwgZlbRw26zhz1BkIgC4
+Content-Type: application/json
+
+{
+   "tweet": "The Evenings..."
+}
+###
+
+delete http://localhost:3000/tweets/1/
+Authorization: Barear eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InBhdmFuS2lsbGFkYSIsImlhdCI6MTY3NzMzNzE0MH0.VxBbVGct7Yaoj3jwqLf5oc_wwgZlbRw26zhz1BkIgC4
+###
