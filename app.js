@@ -180,6 +180,8 @@ app.get(
       let likesQuery = `select username from user join like on user.user_id = like.user_id where tweet_id = ${tweetId};`;
       let likesReply = await db.get(likesQuery);
       let likesArray = likesReply.map((obj) => obj.username);
+      console.log({ likes: likesArray });
+
       response.send({
         likes: likesArray,
       });
@@ -229,7 +231,7 @@ app.get("/user/tweets/", authenticationToken, async (request, response) => {
   const { username } = request;
   const getUserIdQuery = `select user_id as userId from user where username = "${username}";`;
   const { userId } = await db.get(getUserIdQuery);
-  const tweetQuery = `select tweet,count(like_id) as likes,count(reply_id) as replies,tweet.date_time as dateTime from tweet join like on tweet.tweet_id = like.tweet_id join reply on tweet.tweet_id = reply.tweet_id where tweet.user_id = ${userId} group by tweet.tweet_id;`;
+  const tweetQuery = `select tweet,(select count(like_id) from like where tweet_id = tweet.tweet_id) as likes,(select count(reply_id) from reply where tweet_id = tweet.tweet_id) as replies,tweet.date_time as dateTime from tweet where tweet.user_id = ${userId};`;
   const dbReply = await db.all(tweetQuery);
   response.send(dbReply);
 });
